@@ -1,15 +1,61 @@
-
-
-let peso = prompt("Ingrese su peso en Kg");
-let altura = prompt ("Ingrese su altura en metros (Ej: 1.75)");
-let indice = peso / (altura **2 );
-alert("Tu IMC es " + indice)
-if (indice <= 18.4) {
-    alert("Estas bajo/a de peso");
+function suma(numeroUno, numeroDos) {
+    let resultado = numeroUno + numeroDos;
+    return resultado;
 }
-if (indice >= 18.5 && indice <= 24.9) {
-    alert("Estas en el peso adecuado amigo/a")
+function resta(numeroUno, numeroDos) {
+    let resultado = numeroUno - numeroDos;
+    return resultado;
 }
-if (indice >= 25.0 ) {
-    alert("Estas un poco excedido en tu peso amigo/a")
+function multiplicacion(numeroUno, numeroDos) {
+    let resultado = numeroUno * numeroDos;
+    return resultado;
 }
+function division(numeroUno, numeroDos) {
+    let resultado = numeroUno / numeroDos;
+    return resultado;
+}
+function mostrarResultado(resultado) {
+    alert("El resultado es: " + resultado)
+}
+function mostrarMenu() {
+    let opcion = prompt("Bievenido, seleccione una opción. Si no, escribí (cerrar) para salir \n1 Sumar \n2 Restar \n3 Multiplicar \n4 Dividir");
+    return opcion
+}
+    
+function calculadora() {
+    let opcionSeleccionada = mostrarMenu()
+    while (opcionSeleccionada.toUpperCase() !== "CERRAR") {
+        if (opcionSeleccionada !== "") {
+            let numeroUno = parseFloat(prompt("Ingrese el primer número "))
+            let numeroDos = parseFloat(prompt("Ingrese el segundo número "))
+            opcionSeleccionada = parseInt(opcionSeleccionada)
+            switch (opcionSeleccionada) {
+                case 1:
+                    let resultadoSuma = suma(numeroUno, numeroDos);
+                    mostrarResultado(resultadoSuma);
+                    break;
+                case 2:
+                    let resultadoResta = resta(numeroUno, numeroDos);
+                    mostrarResultado(resultadoResta)
+                    break;
+                case 3:
+                    let resultado = multiplicacion(numeroUno, numeroDos)    
+                    mostrarResultado(resultado);
+                    break;
+                case 4:
+                        let resultadoDivision = division(numeroUno, numeroDos)
+                        mostrarResultado (resultadoDivision);
+                    break;
+  
+                    default:
+                        alert("Opción incorrecta")
+                        break;
+            }
+            // SWITCH PARA SELECCIONAR OPCION
+        } else {
+            alert("seleccione la opción")
+        }
+        opcionSeleccionada = mostrarMenu()
+    }
+}
+calculadora()
